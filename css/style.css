@@ -1,1 +1,683 @@
 
+/* =====================================================
+   SYNCORE — Folha de Estilos Principal
+   Arquivo: css/style.css
+
+   📌 COMO FUNCIONA O CSS:
+   CSS (Cascading Style Sheets) é o que define
+   a aparência da sua página. Aqui você controla:
+   - Cores
+   - Tamanhos de fonte
+   - Espaçamentos
+   - Animações
+   - Layout (como os elementos se organizam)
+===================================================== */
+
+
+/* ─────────────────────────────────────────────────
+   VARIÁVEIS GLOBAIS (Root Variables)
+   São como "apelidos" para as cores e valores.
+   Ao invés de escrever #1A56E8 em 50 lugares,
+   você usa --blue e muda só aqui se quiser alterar.
+───────────────────────────────────────────────── */
+:root {
+  --cyan: #00AEEF;         /* Azul ciano da logo (ícone) */
+  --blue: #1A56E8;         /* Azul royal da logo ("core") */
+  --dark: #060C1A;         /* Fundo escuro principal */
+  --dark2: #0D1526;        /* Fundo escuro secundário */
+  --dark3: #121E35;        /* Fundo de cards */
+  --text: #E8EDF7;         /* Cor do texto principal */
+  --muted: #7A8BAF;        /* Cor do texto secundário (mais apagado) */
+  --card: #0F1A30;         /* Fundo dos cards */
+  --border: rgba(26, 86, 232, 0.2); /* Cor das bordas */
+  --glow: rgba(0, 174, 239, 0.15);  /* Efeito de brilho */
+}
+
+
+/* ─────────────────────────────────────────────────
+   RESET E BASE
+   Remove estilos padrão dos navegadores e
+   define comportamentos globais da página.
+───────────────────────────────────────────────── */
+*, *::before, *::after {
+  box-sizing: border-box; /* Faz o tamanho incluir borda e padding */
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth; /* Rolagem suave ao clicar nos links âncora */
+}
+
+body {
+  font-family: 'DM Sans', sans-serif; /* Fonte principal do corpo */
+  background: var(--dark);
+  color: var(--text);
+  overflow-x: hidden; /* Evita scroll horizontal indesejado */
+}
+
+
+/* ─────────────────────────────────────────────────
+   NAVBAR — Barra de navegação fixa
+   position: fixed faz ela ficar no topo mesmo
+   quando o usuário rola a página
+───────────────────────────────────────────────── */
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100; /* Fica acima de tudo (número maior = mais na frente) */
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1.2rem 6%;
+  background: rgba(6, 12, 26, 0.85); /* Fundo semi-transparente */
+  backdrop-filter: blur(16px);        /* Desfoque (efeito vidro fosco) */
+  border-bottom: 1px solid var(--border);
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none; /* Remove sublinhado do link */
+}
+
+.nav-logo svg {
+  width: 36px;
+  height: 3px;
+}
+
+.logo-text {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.logo-text .syn  { color: var(--text); }   /* "syn" em branco */
+.logo-text .core { color: var(--blue); }   /* "core" em azul */
+
+.nav-cta {
+  background: var(--blue);
+  color: #ffffff;
+  border: none;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  font-family: 'DM Sans', sans-serif;
+  font-size: 0.9rem;
+  font-weight: 500;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s; /* Animação suave no hover */
+}
+
+.nav-cta:hover {
+  background: #0d3fc7;
+  transform: translateY(-1px); /* Sobe 1px ao passar o mouse */
+}
+
+
+/* ─────────────────────────────────────────────────
+   HERO — Seção principal (tela inicial)
+   min-height: 100vh = ocupa pelo menos 100%
+   da altura da tela do usuário
+───────────────────────────────────────────────── */
+#hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;   /* Empilha os filhos verticalmente */
+  align-items: center;      /* Centraliza horizontalmente */
+  justify-content: center;  /* Centraliza verticalmente */
+  text-align: center;
+  padding: 7rem 6% 5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Fundo com gradiente suave */
+.hero-bg {
+  position: absolute;
+  inset: 0; /* Equivale a top:0 right:0 bottom:0 left:0 */
+  background:
+    radial-gradient(ellipse 60% 50% at 50% 0%, rgba(26,86,232,0.18) 0%, transparent 70%),
+    radial-gradient(ellipse 40% 30% at 80% 80%, rgba(0,174,239,0.1) 0%, transparent 60%);
+  pointer-events: none; /* Não interfere nos cliques */
+}
+
+/* Grade de linhas no fundo */
+.hero-grid {
+  position: absolute;
+  inset: 0;
+  background-image:
+    linear-gradient(rgba(26,86,232,0.06) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(26,86,232,0.06) 1px, transparent 1px);
+  background-size: 48px 48px;
+  mask-image: radial-gradient(ellipse 80% 60% at 50% 40%, black 20%, transparent 100%);
+  pointer-events: none;
+}
+
+/* Badge "Tecnologia & IA" */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(26,86,232,0.12);
+  border: 1px solid rgba(26,86,232,0.3);
+  border-radius: 100px;
+  padding: 0.35rem 0.9rem;
+  font-size: 0.8rem;
+  color: var(--cyan);
+  margin-bottom: 1.8rem;
+  letter-spacing: 0.04em;
+  position: relative;
+}
+
+/* Bolinha pulsante do badge */
+.badge-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--cyan);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%       { opacity: 0.4; transform: scale(0.7); }
+}
+
+/* Título principal do Hero */
+.hero-title {
+  font-family: 'Syne', sans-serif;
+  /* clamp(mínimo, ideal, máximo) — responsivo automaticamente */
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  margin-bottom: 1.4rem;
+  position: relative;
+  max-width: 780px;
+}
+
+.hero-title .accent  { color: var(--cyan); }  /* Palavra em ciano */
+.hero-title .accent2 { color: var(--blue); }  /* Palavra em azul */
+
+/* Subtítulo do Hero */
+.hero-sub {
+  font-size: 1.1rem;
+  color: var(--muted);
+  max-width: 560px;
+  line-height: 1.7;
+  margin-bottom: 2.8rem;
+  font-weight: 300;
+  position: relative;
+}
+
+/* Container dos botões do Hero */
+.hero-btns {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;       /* Quebra linha em telas menores */
+  justify-content: center;
+  position: relative;
+}
+
+/* Esferas flutuantes decorativas */
+.float-shape {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(60px);
+  pointer-events: none;
+  animation: float 8s ease-in-out infinite;
+}
+
+.float-shape.s1 {
+  width: 300px; height: 300px;
+  background: rgba(26,86,232,0.12);
+  top: -80px; left: -60px;
+  animation-delay: 0s;
+}
+
+.float-shape.s2 {
+  width: 200px; height: 200px;
+  background: rgba(0,174,239,0.1);
+  bottom: 100px; right: -40px;
+  animation-delay: 3s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50%       { transform: translateY(-20px) scale(1.05); }
+}
+
+
+/* ─────────────────────────────────────────────────
+   BOTÕES GLOBAIS
+───────────────────────────────────────────────── */
+.btn-primary {
+  background: var(--blue);
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  border: none;
+  cursor: pointer;
+  display: inline-block;
+  transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+  box-shadow: 0 0 24px rgba(26,86,232,0.35);
+}
+
+.btn-primary:hover {
+  background: #0d3fc7;
+  transform: translateY(-2px);
+  box-shadow: 0 0 36px rgba(26,86,232,0.5);
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--text);
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-weight: 400;
+  font-size: 1rem;
+  text-decoration: none;
+  display: inline-block;
+  border: 1px solid rgba(255,255,255,0.12);
+  cursor: pointer;
+  transition: border-color 0.2s, background 0.2s, transform 0.15s;
+}
+
+.btn-secondary:hover {
+  border-color: rgba(255,255,255,0.3);
+  background: rgba(255,255,255,0.04);
+  transform: translateY(-2px);
+}
+
+.btn-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: #25d366;
+  color: #fff;
+  padding: 0.9rem 2rem;
+  border-radius: 10px;
+  font-weight: 500;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s, transform 0.15s;
+  box-shadow: 0 0 24px rgba(37,211,102,0.3);
+}
+
+.btn-whatsapp:hover {
+  background: #1db954;
+  transform: translateY(-2px);
+}
+
+
+/* ─────────────────────────────────────────────────
+   STATS BAR — Barra de números/estatísticas
+───────────────────────────────────────────────── */
+.stats-bar {
+  background: var(--dark2);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+  padding: 2rem 6%;
+  display: flex;
+  justify-content: center;
+  gap: 4rem;
+  flex-wrap: wrap;
+}
+
+.stat-item { text-align: center; }
+
+.stat-num {
+  font-family: 'Syne', sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  color: var(--cyan);
+  display: block;
+}
+
+.stat-label {
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-top: 2px;
+}
+
+
+/* ─────────────────────────────────────────────────
+   SEÇÕES — Padrão para todas as seções
+───────────────────────────────────────────────── */
+section {
+  padding: 6rem 6%;
+}
+
+.section-label {
+  font-size: 0.75rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--cyan);
+  margin-bottom: 0.7rem;
+  font-weight: 500;
+}
+
+.section-title {
+  font-family: 'Syne', sans-serif;
+  font-size: clamp(1.8rem, 3.5vw, 2.8rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.025em;
+  margin-bottom: 1rem;
+}
+
+.section-sub {
+  font-size: 1rem;
+  color: var(--muted);
+  max-width: 540px;
+  line-height: 1.7;
+  font-weight: 300;
+}
+
+.section-header {
+  margin-bottom: 3.5rem;
+}
+
+.section-header.center {
+  text-align: center;
+}
+
+.section-header.center .section-sub {
+  margin: 0 auto;
+}
+
+
+/* ─────────────────────────────────────────────────
+   CARDS DE SERVIÇOS
+───────────────────────────────────────────────── */
+#servicos {
+  background: var(--dark2);
+}
+
+.services-grid {
+  display: grid;
+  /* auto-fit = preenche o espaço disponível automaticamente */
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.service-card {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  padding: 2rem 1.8rem;
+  transition: border-color 0.3s, transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Linha colorida no topo do card (aparece no hover) */
+.service-card::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 2px;
+  background: linear-gradient(90deg, var(--blue), var(--cyan));
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.service-card:hover {
+  border-color: rgba(26,86,232,0.5);
+  transform: translateY(-4px);
+  box-shadow: 0 16px 40px rgba(0,0,0,0.3);
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  background: rgba(26,86,232,0.12);
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.2rem;
+  font-size: 1.4rem;
+}
+
+.service-card h3 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1.15rem;
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+}
+
+.service-card p {
+  font-size: 0.9rem;
+  color: var(--muted);
+  line-height: 1.65;
+}
+
+
+/* ─────────────────────────────────────────────────
+   SEÇÃO DIFERENCIAIS — 2 colunas lado a lado
+───────────────────────────────────────────────── */
+#diferenciais {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 5rem;
+  align-items: center;
+}
+
+.diff-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.diff-item {
+  display: flex;
+  gap: 1rem;
+  align-items: flex-start;
+}
+
+.diff-icon-wrap {
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0; /* Não encolhe quando o texto é longo */
+  background: rgba(0,174,239,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.1rem;
+  margin-top: 2px;
+}
+
+.diff-item h4 {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.diff-item p {
+  font-size: 0.88rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+/* Painel visual de métricas */
+.visual-block {
+  background: var(--card);
+  border: 1px solid var(--border);
+  border-radius: 20px;
+  padding: 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.visual-block::after {
+  content: '';
+  position: absolute;
+  bottom: -40px; right: -40px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(0,174,239,0.12) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+.vb-title {
+  font-family: 'Syne', sans-serif;
+  font-size: 0.85rem;
+  color: var(--muted);
+  margin-bottom: 1.5rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.metric-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.9rem 0;
+  border-bottom: 1px solid rgba(255,255,255,0.05);
+}
+
+.metric-row:last-child {
+  border-bottom: none;
+}
+
+.metric-name { font-size: 0.9rem; color: var(--muted); }
+
+.metric-val {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.metric-up      { color: #34d399; } /* Verde para crescimento */
+.metric-neutral { color: var(--cyan); }
+
+
+/* ─────────────────────────────────────────────────
+   SEÇÃO CTA — Chamada final para ação
+───────────────────────────────────────────────── */
+#cta {
+  background: var(--dark2);
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+}
+
+#cta::before {
+  content: '';
+  position: absolute;
+  top: -60px; left: 50%;
+  transform: translateX(-50%);
+  width: 600px; height: 300px;
+  background: radial-gradient(ellipse, rgba(26,86,232,0.2) 0%, transparent 70%);
+  pointer-events: none;
+}
+
+#cta .section-title {
+  max-width: 600px;
+  margin: 0 auto 1rem;
+}
+
+#cta .section-sub {
+  margin: 0 auto 2.5rem;
+  text-align: center;
+}
+
+.cta-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+
+/* ─────────────────────────────────────────────────
+   FOOTER — Rodapé
+───────────────────────────────────────────────── */
+footer {
+  background: var(--dark);
+  border-top: 1px solid var(--border);
+  padding: 2.5rem 6%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.footer-brand {
+  font-family: 'Syne', sans-serif;
+  font-size: 1rem;
+  font-weight: 100;
+}
+
+.footer-brand .syn  { color: var(--text); }
+.footer-brand .core { color: var(--blue); }
+
+footer p {
+  font-size: 0.82rem;
+  color: var(--muted);
+}
+.footer-brand img {
+  height: 42px;
+}
+
+/* ─────────────────────────────────────────────────
+   ANIMAÇÕES DE ENTRADA (Fade In)
+   Os elementos começam invisíveis e sobem
+   suavemente ao entrar na tela
+───────────────────────────────────────────────── */
+.fade-in {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.7s ease, transform 0.7s ease;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Atraso progressivo para os elementos filhos */
+.fade-in:nth-child(2) { transition-delay: 0.1s; }
+.fade-in:nth-child(3) { transition-delay: 0.2s; }
+.fade-in:nth-child(4) { transition-delay: 0.3s; }
+
+
+/* ─────────────────────────────────────────────────
+   RESPONSIVIDADE — Mobile
+   @media = "se a tela for menor que X, aplique isto"
+───────────────────────────────────────────────── */
+@media (max-width: 768px) {
+  /* Diferenciais vira 1 coluna no mobile */
+  #diferenciais {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+
+  /* Stats com menos gap no mobile */
+  .stats-bar {
+    gap: 2rem;
+  }
+
+  /* Botões ficam em coluna no mobile */
+  .hero-btns,
+  .cta-btns {
+    flex-direction: column;
+    align-items: center;
+  }
+}
