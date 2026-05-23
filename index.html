@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--
+  =====================================================
+  SYNCORE — Landing Page Principal
+  Arquivo: index.html
+
+  📌 ESTRUTURA DO PROJETO:
+  syncore-landing/
+  ├── index.html          ← você está aqui
+  ├── css/
+  │   └── style.css       ← toda a aparência visual
+  ├── js/
+  │   └── main.js         ← animações e interações
+  └── assets/
+      └── images/
+          ├── logo-vertical.png    ← logo vertical (ícone + texto empilhados)
+          ├── logo-horizontal.png  ← logo horizontal (ícone + texto lado a lado)
+          └── logo-icone.png       ← só o ícone (infinito)
+
+  📌 PARA EDITAR:
+  - Textos: edite diretamente aqui no HTML
+  - Cores/visual: edite em css/style.css
+  - Animações: edite em js/main.js
+  - Número do WhatsApp: Ctrl+H e substitua 5588999999999
+    pelo seu número com DDD (ex: 5586912345678)
+===================================================== -->
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ─── SEO — Aparece no Google ─── -->
+  <!-- 📌 EDITE: Mude o title e description para a Syncore -->
+  <title>Syncore — Sincronia que constrói o futuro</title>
+  <meta name="description" content="A Syncore desenvolve sites, landing pages, automações com IA e SaaS que transformam sua presença digital em resultados reais.">
+  <meta name="keywords" content="syncore, automação IA, landing page, sites, SaaS, tecnologia">
+
+  <!-- ─── Open Graph — Preview ao compartilhar no WhatsApp/Instagram ─── -->
+  <meta property="og:title" content="Syncore — Sincronia que constrói o futuro">
+  <meta property="og:description" content="Sites, landing pages, automações com IA e SaaS para o seu negócio.">
+  <meta property="og:type" content="website">
+  <!-- <meta property="og:image" content="assets/images/og-image.jpg"> -->
+  <!-- 📌 DICA: Crie uma imagem de 1200x630px e descomente a linha acima -->
+
+  <!-- ─── Favicon (ícone na aba do navegador) ─── -->
+  <!-- <link rel="icon" type="image/png" href="assets/images/logo-icone.png"> -->
+  <!-- 📌 Descomente a linha acima para ativar o favicon -->
+
+  <!-- ─── Google Fonts ─── -->
+  <!-- Syne: fonte dos títulos (impactante, moderna) -->
+  <!-- DM Sans: fonte do corpo do texto (leve, legível) -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+
+  <!-- ─── CSS Principal ─── -->
+  <!-- 📌 IMPORTANTE: O CSS vem ANTES do conteúdo -->
+  <link rel="stylesheet" href="css/style.css">
+</head>
+
+<body>
+
+<!-- ═══════════════════════════════════════════════════════
+     NAVBAR — Menu de navegação fixo no topo
+     
+     📌 O QUE É: Fica preso no topo enquanto o usuário rola.
+     📌 EDITE: O número do WhatsApp no href do botão.
+     📌 ESTRUTURA:
+       <nav>
+         logo (esquerda) | botão CTA (direita)
+       </nav>
+═══════════════════════════════════════════════════════ -->
+<nav>
+
+  <!-- Logo da Syncore (clique leva ao topo) -->
+<a href="#" class="nav-logo" aria-label="Syncore">
+  <img src="assets/images/logo.png" alt="Syncore" height="46'>">
+</a>
+
+
+  <!-- Botão de contato direto -->
+  <!-- 📌 EDITE: Substitua 5588999999999 pelo seu número -->
+  <!-- Formato: 55 (Brasil) + DDD + número. Ex: 5586912345678 -->
+  <a
+    href="https://wa.me/5586999698091?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20saber%20mais%20sobre%20os%20servi%C3%A7os%20da%20Syncore."
+    class="nav-cta"
+    target="_blank"
+    rel="noopener"
+  >
+    Falar com a gente
+  </a>
+
+</nav>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     HERO — Primeira tela (acima da dobra)
+     
+     📌 O QUE É: A seção mais importante da página.
+     É o que o visitante vê PRIMEIRO, antes de rolar.
+     Precisa comunicar: Quem somos + O que fazemos + Por que agir agora.
+     
+     📌 EDITE:
+     - Título (hero-title): frase de impacto da Syncore
+     - Subtítulo (hero-sub): descrição dos serviços
+     - Botões: textos e links do WhatsApp
+═══════════════════════════════════════════════════════ -->
+<section id="hero" aria-label="Início">
+
+  <!-- Elementos decorativos do fundo (não edite) -->
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-grid" aria-hidden="true"></div>
+  <div class="float-shape s1" aria-hidden="true"></div>
+  <div class="float-shape s2" aria-hidden="true"></div>
+
+  <!-- Badge de nicho -->
+    <div class="badge-dot" aria-hidden="true"></div>
+    Tecnologia &amp; Inteligência Artificial <!-- 📌 EDITE: nicho da Syncore -->
+  </div>
+
+  <!-- Título principal — seja direto e impactante! -->
+  <!-- 📌 EDITE: O título é o que mais influencia a conversão -->
+  <h1 class="hero-title fade-in">
+    Seu negócio em <span class="accent">sincronia</span><br>
+    com o <span class="accent2">futuro digital</span>
+  </h1>
+
+  <!-- Subtítulo explicativo -->
+  <!-- 📌 EDITE: Descreva brevemente o que a Syncore faz -->
+  <p class="hero-sub fade-in">
+    Desenvolvemos sites, landing pages, automações com IA e soluções SaaS
+    que transformam a sua presença digital em resultados reais.
+  </p>
+
+  <!-- Botões de ação -->
+  <div class="hero-btns fade-in">
+    <!-- Botão principal: direto ao WhatsApp -->
+    <a
+      href="https://wa.me/5586999698091?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20e%20quero%20um%20or%C3%A7amento%20da%20Syncore."
+      class="btn-primary"
+      target="_blank"
+      rel="noopener"
+    >
+        Sua empresa em boas mãos! <!-- 📌 EDITE: texto do botão principal -->
+    </a>
+
+    <!-- Botão secundário: âncora para seção de serviços -->
+    <a href="#servicos" class="btn-secondary">
+      Ver nossos serviços
+    </a>
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     STATS BAR — Barra de números (prova social rápida)
+     
+     📌 O QUE É: Números que geram confiança imediata.
+     Aparecem logo após o hero para "provar" credibilidade.
+     
+     📌 EDITE: Os números e textos das estatísticas.
+     📌 DICA: Use data-target="50" e data-suffix="+"
+              para ativar a animação de contagem no JS.
+═══════════════════════════════════════════════════════ -->
+<div class="stats-bar" role="region" aria-label="Números da Syncore">
+
+  <div class="stat-item fade-in">
+    <!-- data-target: número final da animação | data-suffix: símbolo depois do número -->
+    <span class="stat-num" data-target="50" data-suffix="+">50+</span>
+    <span class="stat-label">Projetos entregues</span> <!-- 📌 EDITE -->
+  </div>
+
+  <div class="stat-item fade-in">
+    <span class="stat-num" data-target="98" data-suffix="%">98%</span>
+    <span class="stat-label">Clientes satisfeitos</span> <!-- 📌 EDITE -->
+  </div>
+
+  <div class="stat-item fade-in">
+    <span class="stat-num">3</span>
+    <span class="stat-label">Mais conversões com IA</span> <!-- 📌 EDITE -->
+  </div>
+
+  <div class="stat-item fade-in">
+    <span class="stat-num">24h</span>
+    <span class="stat-label">Suporte disponível</span> <!-- 📌 EDITE -->
+  </div>
+
+</div>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     SERVIÇOS — O que a Syncore oferece
+     
+     📌 O QUE É: Grid de cards mostrando cada serviço.
+     📌 EDITE: Ícone (emoji), título e descrição de cada card.
+     📌 ADICIONAR CARD: Copie um bloco <div class="service-card">
+                        e cole antes do fechamento de .services-grid
+     📌 REMOVER CARD:   Apague o bloco <div class="service-card"> completo
+═══════════════════════════════════════════════════════ -->
+<section id="servicos" aria-label="Serviços">
+
+  <div class="section-header center">
+    <p class="section-label">O que fazemos</p> <!-- 📌 EDITE: label da seção -->
+    <h2 class="section-title">Soluções completas em tecnologia</h2> <!-- 📌 EDITE -->
+    <p class="section-sub">
+      De uma landing page até uma automação com IA, entregamos tudo que
+      o seu negócio precisa para crescer no digital. <!-- 📌 EDITE -->
+    </p>
+  </div>
+
+  <div class="services-grid">
+
+    <!-- CARD 1: Automações com IA -->
+    <article class="service-card fade-in">
+      <div class="service-icon" aria-hidden="true">🤖</div> <!-- 📌 EDITE: emoji do ícone -->
+      <h3>Automações com IA</h3> <!-- 📌 EDITE: nome do serviço -->
+      <p>
+        Chatbots, fluxos automatizados e integrações inteligentes que
+        economizam tempo e aumentam a produtividade do seu negócio. <!-- 📌 EDITE: descrição -->
+      </p>
+    </article>
+
+    <!-- CARD 2: Landing Pages -->
+    <article class="service-card fade-in">
+      <div class="service-icon" aria-hidden="true">🚀</div>
+      <h3>Landing Pages</h3>
+      <p>
+        Páginas de alta conversão, desenvolvidas para transformar visitantes
+        do Instagram e redes sociais em clientes reais.
+      </p>
+    </article>
+
+    <!-- CARD 3: Sites e Web Apps -->
+    <article class="service-card fade-in">
+      <div class="service-icon" aria-hidden="true">🌐</div>
+      <h3>Sites e Web Apps</h3>
+      <p>
+        Sites profissionais, modernos e rápidos. Do portfólio ao sistema
+        completo, com design exclusivo para a sua marca.
+      </p>
+    </article>
+
+    <!-- CARD 4: SaaS -->
+    <article class="service-card fade-in">
+      <div class="service-icon" aria-hidden="true">📦</div>
+      <h3>SaaS Personalizado</h3>
+      <p>
+        Desenvolvemos softwares como serviço sob medida para automatizar
+        processos e criar novas fontes de receita.
+      </p>
+    </article>
+
+    <!-- CARD 5: Dashboards -->
+    <article class="service-card fade-in">
+      <div class="service-icon" aria-hidden="true">📊</div>
+      <h3>Dashboards e Analytics</h3>
+      <p>
+        Visualize dados e métricas do seu negócio em tempo real com
+        painéis intuitivos que facilitam a tomada de decisão.
+      </p>
+    </article>
+
+    <!-- CARD 6: Consultoria -->
+    <article class="service-card fade-in">
+      <div class="service-icon" aria-hidden="true">⚡</div>
+      <h3>Consultoria Digital</h3>
+      <p>
+        Estratégia tecnológica para o seu negócio. Identificamos
+        oportunidades e entregamos o caminho mais eficiente para o crescimento.
+      </p>
+    </article>
+
+  </div><!-- fim .services-grid -->
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     DIFERENCIAIS — Por que escolher a Syncore?
+     
+     📌 O QUE É: Seção de 2 colunas.
+     Esquerda: lista de benefícios/diferenciais
+     Direita: painel de métricas/resultados (visual de credibilidade)
+     
+     📌 EDITE: Ícones, títulos e descrições dos itens da lista.
+     📌 EDITE: Números e rótulos do painel de métricas.
+═══════════════════════════════════════════════════════ -->
+<section id="diferenciais" aria-label="Diferenciais">
+
+  <!-- COLUNA ESQUERDA: Lista de diferenciais -->
+  <div>
+    <div class="section-header">
+      <p class="section-label">Por que escolher a Syncore?</p> <!-- 📌 EDITE -->
+      <h2 class="section-title">Tecnologia que gera resultado de verdade</h2> <!-- 📌 EDITE -->
+      <p class="section-sub">
+        Não entregamos só código bonito. Entregamos crescimento mensurável. <!-- 📌 EDITE -->
+      </p>
+    </div>
+
+    <ul class="diff-list">
+
+      <!-- ITEM 1 -->
+      <li class="diff-item fade-in">
+        <div class="diff-icon-wrap" aria-hidden="true">⚙️</div> <!-- 📌 EDITE: emoji -->
+        <div>
+          <h4>Entregas rápidas e precisas</h4> <!-- 📌 EDITE: título do diferencial -->
+          <p>Projetos com prazos claros e metodologia ágil. Você acompanha cada etapa em tempo real.</p>
+        </div>
+      </li>
+
+      <!-- ITEM 2 -->
+      <li class="diff-item fade-in">
+        <div class="diff-icon-wrap" aria-hidden="true">🎯</div>
+        <div>
+          <h4>Foco em conversão</h4>
+          <p>Cada elemento é pensado para converter. Não criamos páginas bonitas — criamos páginas que vendem.</p>
+        </div>
+      </li>
+
+      <!-- ITEM 3 -->
+      <li class="diff-item fade-in">
+        <div class="diff-icon-wrap" aria-hidden="true">🔗</div>
+        <div>
+          <h4>Integração total com IA</h4>
+          <p>Soluções nativas com inteligência artificial que automatizam atendimento, vendas e processos internos.</p>
+        </div>
+      </li>
+
+      <!-- ITEM 4 -->
+      <li class="diff-item fade-in">
+        <div class="diff-icon-wrap" aria-hidden="true">🛡️</div>
+        <div>
+          <h4>Suporte contínuo</h4>
+          <p>Estamos com você depois da entrega. Suporte ativo para garantir que tudo funcione perfeitamente.</p>
+        </div>
+      </li>
+
+    </ul>
+  </div><!-- fim coluna esquerda -->
+
+  <!-- COLUNA DIREITA: Painel de métricas -->
+  <!-- 📌 EDITE: Altere os números e labels das métricas abaixo -->
+  <div class="visual-block fade-in" role="region" aria-label="Resultados médios">
+    <p class="vb-title">Resultados médios dos clientes</p>
+
+    <div class="metric-row">
+      <span class="metric-name">Taxa de conversão</span>
+      <span class="metric-val metric-up">↑ 312%</span> <!-- 📌 EDITE -->
+    </div>
+
+    <div class="metric-row">
+      <span class="metric-name">Tempo de resposta (IA)</span>
+      <span class="metric-val metric-neutral">&lt; 3 segundos</span> <!-- 📌 EDITE -->
+    </div>
+
+    <div class="metric-row">
+      <span class="metric-name">Redução de custos operacionais</span>
+      <span class="metric-val metric-up">↓ 60%</span> <!-- 📌 EDITE -->
+    </div>
+
+    <div class="metric-row">
+      <span class="metric-name">Satisfação dos clientes</span>
+      <span class="metric-val metric-up">98%</span> <!-- 📌 EDITE -->
+    </div>
+
+    <div class="metric-row">
+      <span class="metric-name">Projetos no prazo</span>
+      <span class="metric-val metric-up">100%</span> <!-- 📌 EDITE -->
+    </div>
+
+  </div><!-- fim painel de métricas -->
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     CTA FINAL — Chamada para ação
+     
+     📌 O QUE É: A última chance de converter o visitante.
+     Deve ser direto, urgente e ter UM botão claro.
+     O botão do WhatsApp é o principal canal no Brasil.
+     
+     📌 EDITE: Título, subtítulo e número do WhatsApp.
+═══════════════════════════════════════════════════════ -->
+<section id="cta" aria-label="Entre em contato">
+
+  <p class="section-label">Pronto para começar?</p> <!-- 📌 EDITE -->
+
+  <h2 class="section-title fade-in">
+    Vamos construir o futuro<br>do seu negócio juntos <!-- 📌 EDITE -->
+  </h2>
+
+  <p class="section-sub fade-in">
+    Entre em contato agora. A primeira conversa é gratuita e sem compromisso. <!-- 📌 EDITE -->
+  </p>
+
+  <div class="cta-btns fade-in">
+
+    <!-- Botão WhatsApp — principal canal de conversão -->
+    <a
+      href="https://wa.me/5588999999999?text=Ol%C3%A1!%20Vim%20pelo%20Instagram%20da%20Syncore%20e%20gostaria%20de%20conhecer%20melhor%20os%20servi%C3%A7os."
+      class="btn-whatsapp"
+      target="_blank"
+      rel="noopener"
+      aria-label="Falar com a Syncore no WhatsApp"
+    >
+      <!-- Ícone do WhatsApp em SVG -->
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+        <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413Z"/>
+      </svg>
+      Falar no WhatsApp agora <!-- 📌 EDITE: texto do botão -->
+    </a>
+
+    <a href="#servicos" class="btn-secondary">
+      Ver nossos serviços <!-- 📌 EDITE: texto do botão secundário -->
+    </a>
+
+  </div>
+
+</section>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     FOOTER — Rodapé
+     
+     📌 EDITE: Ano, nome da empresa e slogan.
+═══════════════════════════════════════════════════════ -->
+<footer>
+
+  <div class="footer-brand">
+  <img src="assets/images/logo.png" alt="Syncore" class="logo-footer">
+</div>
+  
+
+  <p>
+    Sincronia que constrói o futuro. <!-- 📌 EDITE: slogan -->
+    &copy; 2025 Syncore. Todos os direitos reservados. <!-- 📌 EDITE: ano -->
+  </p>
+
+</footer>
+
+
+<!-- ═══════════════════════════════════════════════════════
+     JAVASCRIPT — Carregado no final do <body>
+     
+     📌 POR QUE AQUI? O JS deve ser carregado APÓS o HTML.
+     Se colocado no <head>, o script roda antes da página
+     carregar e não encontra os elementos para animar.
+═══════════════════════════════════════════════════════ -->
+<script src="js/main.js"></script>
+
+</body>
+</html>
