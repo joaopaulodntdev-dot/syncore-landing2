@@ -118,6 +118,39 @@ nav {
   transform: translateY(-1px); /* Sobe 1px ao passar o mouse */
 }
 
+  /* ---------- services grid ---------- */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+  .card{
+    position:relative;background:linear-gradient(160deg,var(--panel),var(--bg-2));
+    border:1px solid var(--line);border-radius:20px;padding:34px 30px;
+    overflow:hidden;transition:transform .25s,border-color .25s;
+  }
+  .card::before{
+    content:"";position:absolute;inset:0;border-radius:20px;padding:1px;
+    background:linear-gradient(140deg,transparent,var(--cyan),transparent);
+    -webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);
+    -webkit-mask-composite:xor;mask-composite:exclude;
+    opacity:0;transition:opacity .25s;
+  }
+  .card:hover{transform:translateY(-7px)}
+  .card:hover::before{opacity:1}
+  .ic{
+    width:56px;height:56px;border-radius:15px;
+    background:linear-gradient(150deg,rgba(34,184,255,.16),rgba(47,107,255,.16));
+    border:1px solid var(--line-strong);
+    display:flex;align-items:center;justify-content:center;margin-bottom:22px;
+  }
+  .ic svg{width:28px;height:28px;stroke:var(--cyan);fill:none;stroke-width:1.7}
+  .card h3{font-family:'Sora',sans-serif;font-weight:600;font-size:1.28rem;
+    margin-bottom:11px;letter-spacing:-.3px}
+  .card p{color:var(--muted);font-size:.97rem;font-weight:300}
+  .card .tags{display:flex;flex-wrap:wrap;gap:8px;margin-top:18px}
+  .tag{font-size:.74rem;color:var(--cyan);background:rgba(34,184,255,.09);
+    border:1px solid var(--line);padding:5px 11px;border-radius:30px;letter-spacing:.3px}
+  .card-num{position:absolute;top:24px;right:28px;font-family:'Sora',sans-serif;
+    font-weight:700;font-size:1rem;color:rgba(98,140,255,.22)}
+
 
 /* ─────────────────────────────────────────────────
    HERO — Seção principal (tela inicial)
